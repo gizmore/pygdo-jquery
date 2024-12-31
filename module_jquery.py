@@ -4,6 +4,10 @@ from gdo.ui.GDT_Page import GDT_Page
 
 class module_jquery(GDO_Module):
 
+    def __init__(self):
+        super().__init__()
+        self._priority = 25
+
     def gdo_load_scripts(self, page: 'GDT_Page'):
         dot_min = self.get_minify_append()
         self.add_bower_js(f"jquery/dist/jquery{dot_min}.js")
@@ -15,5 +19,4 @@ class module_jquery(GDO_Module):
             'node_modules/jquery/LICENSE.txt',
             'node_modules/jquery-color/LICENSE.txt',
             'LICENSE',
-
         ]
