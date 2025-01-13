@@ -12,8 +12,14 @@ window.GDO.effects.Sequence = function($e, sequence) {
 	var options = sequence.gdoOptions||{};
 	var yourThen = options['done'];
 	var yourFail = options['fail'];
-	options['done'] = () => { yourThen && yourThen(); return defer.resolve(); };
-	options['fail'] = () => { yourFail && yourFail(); return defer.reject(); };
+	options['done'] = function() {
+	    yourThen && yourThen();
+	     return defer.resolve();
+	};
+	options['fail'] = function() {
+	    yourFail && yourFail();
+	     return defer.reject();
+	}
 	sequence.gdoOptions = undefined;
 	$e.animate(sequence, options);
 	return defer.promise();
