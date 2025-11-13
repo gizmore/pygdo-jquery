@@ -1,13 +1,13 @@
 "use strict";
 
-window.GDO = window.GDO || {};
+window.gdo = window.gdo || {};
 
-window.GDO.effects = window.GDO.effects || {};
+window.gdo.effects = window.gdo.effects || {};
 
 /**
  * Wrap animation in a more powerful promise.
  */
-window.GDO.effects.Sequence = function($e, sequence) {
+window.gdo.effects.Sequence = function($e, sequence) {
 	var defer = $.Deferred();
 	var options = sequence.gdoOptions||{};
 	var yourThen = options['done'];
@@ -28,7 +28,7 @@ window.GDO.effects.Sequence = function($e, sequence) {
 /**
  * White flashing
  **/
-window.GDO.effects.flashWhite = function($e) {
+window.gdo.effects.flashWhite = function($e) {
 	return GDO.effects.Sequence($e, {
 			'color': '#000',
 			'background-color': '#fff',
@@ -54,7 +54,7 @@ window.GDO.effects.flashWhite = function($e) {
 		});
 };
 
-window.GDO.effects.flashGold = function($e) {
+window.gdo.effects.flashGold = function($e) {
 	var beforeFG = $e.css('color');
 	var beforeBG = $e.css('background-color');
 	return GDO.effects.Sequence($e, {
